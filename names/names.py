@@ -11,15 +11,22 @@ names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
 
+#Only internal dups
+# duplicates = [item for item, count in Counter(names_1).items() if count > 1]
+# duplicates.extend([item for item, count in Counter(names_2).items() if count > 1])
 
-duplicates = [item for item, count in Counter(names_1).items() if count > 1]
-duplicates.extend([item for item, count in Counter(names_2).items() if count > 1])
+#Dups all across
+# duplicates = [item for item, count in Counter(names_1+names_2).items() if count > 1]
+
+#Dups between the lists
+# duplicates = list(set(names_1) & set(names_2))
 
 
 # duplicates = []  # Return the list of duplicates in this data structure
 # unique = []
 # print(names_1.extend(names_2))
 # Replace the nested for loops below with your improvements
+# This returns only dups betwen the lists
 # for name_1 in names_1:
 #     for name_2 in names_2:
 #         if name_1 == name_2:
